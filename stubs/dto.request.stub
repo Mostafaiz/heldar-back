@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Http\Dto\{{ namespace }};
+
+class {{ name }}{
+    public function __construct(public int $id)
+    {
+    }
+    public static function makeDto($array)
+    {
+        return new self(
+            id: $array['id'],
+        );
+    }
+}

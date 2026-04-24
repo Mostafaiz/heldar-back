@@ -1,0 +1,39 @@
+@use "/node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@use 'variables';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 100%);
+
+	h1 {
+		@include variables.font(shabnam, 700, 150px, #374151);
+		margin-bottom: -20px;
+	}
+
+	h3 {
+		@include variables.font(shabnam, 500, 20px, #374151);
+		margin-bottom: 20px;
+	}
+
+	button.back-button {
+		border-width: 0;
+		background-color: transparent;
+		cursor: pointer;
+
+		a {
+			@include variables.font(shabnam, 300, 15px, #1c55b1);
+			text-decoration: none;
+		}
+	}
+}

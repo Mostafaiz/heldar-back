@@ -1,0 +1,198 @@
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import 'tailwindcss';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-shabnam: shabnam;
+    --font-shabnam-en: shabnam-en;
+}
+
+@theme {
+    --color-primary-light: #E898A2;
+    --color-primary: #d67782;
+    --color-primary-dark: #AD5E68;
+
+    --color-secondary-light: #c4b5fd;
+    --color-secondary: #f3f3f3;
+    --color-secondary-dark: #6b21a8;
+
+    --color-accent-light: #fde68a;
+    --color-accent: #c87465;
+    --color-accent-dark: #b45309;
+
+    --color-neutral-light: #f3f4f6;
+    --color-neutral: #6b7280;
+    --color-neutral-dark: #111827;
+
+    --color-background: #f9fafb;
+    --color-surface: #ffffff;
+    --color-overlay: rgba(0, 0, 0, 0.5);
+
+    --color-success: #22c55e;
+    --color-warning: #facc15;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+}
+
+@font-face {
+    font-family: shabnam;
+    src: url('@/fonts/shabnam/farsi-digits/Shabnam-FD.eot');
+    src: url('@/fonts/shabnam/farsi-digits/Shabnam-FD.eot?#iefix') format('embedded-opentype'),
+    url('@/fonts/shabnam/farsi-digits/Shabnam-FD.woff2') format('woff2'),
+    url('@/fonts/shabnam/farsi-digits/Shabnam-FD.woff') format('woff'),
+    url('@/fonts/shabnam/farsi-digits/Shabnam-FD.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    src: url(@/fonts/shabnam/Shabnam.eot);
+    src: url(@/fonts/shabnam/Shabnam.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/Shabnam.woff2) format('woff2'),
+    url(@/fonts/shabnam/Shabnam.woff) format('woff'),
+    url(@/fonts/shabnam/Shabnam.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-FD.eot);
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-FD.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-FD.woff2) format('woff2'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-FD.woff) format('woff'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-FD.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    font-weight: 700;
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-Bold-FD.eot);
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-Bold-FD.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Bold-FD.woff2) format('woff2'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Bold-FD.woff) format('woff'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Bold-FD.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    font-weight: 700;
+    src: url(@/fonts/shabnam/Shabnam-Bold.eot);
+    src: url(@/fonts/shabnam/Shabnam-Bold.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/Shabnam-Bold.woff2) format('woff2'),
+    url(@/fonts/shabnam/Shabnam-Bold.woff) format('woff'),
+    url(@/fonts/shabnam/Shabnam-Bold.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    font-weight: 500;
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-Medium-FD.eot);
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-Medium-FD.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Medium-FD.woff2) format('woff2'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Medium-FD.woff) format('woff'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Medium-FD.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    font-weight: 500;
+    src: url(@/fonts/shabnam/Shabnam-Medium.eot);
+    src: url(@/fonts/shabnam/Shabnam-Medium.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/Shabnam-Medium.woff2) format('woff2'),
+    url(@/fonts/shabnam/Shabnam-Medium.woff) format('woff'),
+    url(@/fonts/shabnam/Shabnam-Medium.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    font-weight: 300;
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-Light-FD.eot);
+    src: url(@/fonts/shabnam/farsi-digits/Shabnam-Light-FD.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Light-FD.woff2) format('woff2'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Light-FD.woff) format('woff'),
+    url(@/fonts/shabnam/farsi-digits/Shabnam-Light-FD.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    font-weight: 300;
+    src: url(@/fonts/shabnam/Shabnam-Light.eot);
+    src: url(@/fonts/shabnam/Shabnam-Light.eot?#iefix) format('embedded-opentype'),
+    url(@/fonts/shabnam/Shabnam-Light.woff2) format('woff2'),
+    url(@/fonts/shabnam/Shabnam-Light.woff) format('woff'),
+    url(@/fonts/shabnam/Shabnam-Light.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@page {
+    size: A5;
+    /* margin: 15mm; */
+}
+
+/* Global print styles */
+@media print {
+    body {
+        font-family: sans-serif;
+        font-size: 12px !important;
+        margin: 0;
+        padding: 0;
+        background: #fff !important;
+    }
+
+    .print-wrapper {
+        scale: 0.5;
+        width: 148mm;
+        min-height: 210mm;
+        position: relative;
+        margin: 0 auto;
+        /* padding: 10px; */
+    }
+
+    /* Hide UI controls */
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Screen preview styling (not printed) */
+@media screen {
+    body {
+        background: #e5e7eb;
+    }
+
+    .sheet-preview {
+        width: 210mm;
+        /* A5 width */
+        min-height: 148mm;
+        /* A5 height */
+        /*margin: 20px auto;*/
+        background: white;
+        /* padding: 15mm; */
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sheet-preview {
+        transform: scale(0.5);
+    }
+}

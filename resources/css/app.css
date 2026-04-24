@@ -1,0 +1,176 @@
+@import "../icons/fontawesome/css/all.css";
+@import 'tailwindcss';
+
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-shabnam: shabnam;
+    --font-shabnam-en: shabnam-en;
+    --shadow-all-direction: 1px 1px 7px -3px gray;
+}
+
+@theme {
+    --color-primary-lighter: #fdf4f6;
+    --color-primary-light: #E898A2;
+    --color-primary: #b98087;
+    --color-primary-dark: #AD5E68;
+
+    --color-secondary-light: #c4b5fd;
+    --color-secondary: #f3f3f3;
+    --color-secondary-dark: #6b21a8;
+
+    --color-accent-light: #fde68a;
+    --color-accent: #c87465;
+    --color-accent-dark: #b45309;
+
+    --color-neutral-light: #f3f4f6;
+    --color-neutral: #6b7280;
+    --color-neutral-dark: #111827;
+
+    --color-background: #f9fafb;
+    --color-surface: #ffffff;
+    --color-overlay: rgba(0, 0, 0, 0.5);
+
+    --color-success: #22c55e;
+    --color-warning: #facc15;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+}
+
+@font-face {
+    font-family: shabnam;
+    src: url('@/fonts/iransans/farsi-digits/IRANSansXFaNum-Regular.woff2') format('woff2'),
+        url('@/fonts/iransans/farsi-digits/IRANSansXFaNum-Regular.woff') format('woff'),
+        url('@/fonts/iransans/farsi-digits/IRANSansXFaNum-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    src: url(@/fonts/iransans/IRANSansX-Medium.woff2) format('woff2'),
+        url(@/fonts/iransans/IRANSansX-Medium.woff) format('woff'),
+        url(@/fonts/iransans/IRANSansX-Medium.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    src: url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Medium.woff2) format('woff2'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Medium.woff) format('woff'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Medium.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    font-weight: 700;
+    src: url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-ExtraBold.woff2) format('woff2'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-ExtraBold.woff) format('woff'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-ExtraBold.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    font-weight: 700;
+    src: url(@/fonts/iransans/IRANSansX-ExtraBold.woff2) format('woff2'),
+        url(@/fonts/iransans/IRANSansX-ExtraBold.woff) format('woff'),
+        url(@/fonts/iransans/IRANSansX-ExtraBold.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    font-weight: 500;
+    src: url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Bold.woff2) format('woff2'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Bold.woff) format('woff'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Bold.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    font-weight: 500;
+    src: url(@/fonts/iransans/IRANSansX-Bold.woff2) format('woff2'),
+        url(@/fonts/iransans/IRANSansX-Bold.woff) format('woff'),
+        url(@/fonts/iransans/IRANSansX-Bold.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam;
+    font-weight: 300;
+    src: url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Light.woff2) format('woff2'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Light.woff) format('woff'),
+        url(@/fonts/iransans/farsi-digits/IRANSansXFaNum-Light.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: shabnam-en;
+    font-weight: 300;
+    src: url(@/fonts/iransans/IRANSansX-Light.woff2) format('woff2'),
+        url(@/fonts/iransans/IRANSansX-Light.woff) format('woff'),
+        url(@/fonts/iransans/IRANSansX-Light.ttf) format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+.hide-arrows::-webkit-outer-spin-button,
+.hide-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+input[type=number].hide-arrows {
+    -moz-appearance: textfield;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+span.error-message {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: shabnam;
+    font-weight: normal;
+    font-size: 13px;
+    color: #d50d0d;
+    width: 100%;
+    height: auto;
+    margin-bottom: -10px;
+    margin-top: 5px;
+
+    &.image,
+    &.color {
+        margin-top: -15px;
+    }
+}

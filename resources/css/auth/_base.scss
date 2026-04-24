@@ -1,0 +1,57 @@
+@use "/node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@use 'variables';
+@use 'static_styles';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	@include variables.flex();
+	width: 100%;
+	height: 100vh;
+}
+
+.container {
+	@include variables.flex(column, flex-start, center, 20px, nowrap);
+	width: 350px;
+	height: auto;
+	min-height: 100px;
+	padding: 20px {
+		top: 10px;
+	};
+
+	border: solid 1px lightgray {
+		radius: 10px;
+	};
+
+	div.logo {
+		@include variables.background('@/images/logo.png', contain);
+		width: 100%;
+		height: 120px;
+	}
+
+	h1.title {
+		@include variables.font(shabnam, 700, 20px, var(--black));
+		@include variables.flex($justify: flex-start);
+		width: 100%;
+		height: auto;
+		margin-top: -10px;
+	}
+
+	.inner-container {
+		@include variables.flex(column, flex-start, center, 20px, nowrap);
+		width: 100%;
+		height: auto;
+	}
+
+	h3.description {
+		@include variables.font(shabnam, 300, 14px, var(--gray));
+		@include variables.flex($justify: flex-start, $align: flex-start, $dir: column, $gap: 5px);
+		width: 100%;
+		height: auto;
+		margin-top: -10px;
+	}
+}

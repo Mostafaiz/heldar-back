@@ -1,0 +1,27 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = tab
+indent_style = space
+tab_width = 4
+insert_final_newline = false
+trim_trailing_whitespace = true
+curly_bracket_next_line = false
+spaces_around_operators = true
+spaces_around_brackets = inside
+max_line_length = 120
+
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.{js,ts}]
+quote_type = double
+
+[docker-compose.yml]
+indent_size = 4

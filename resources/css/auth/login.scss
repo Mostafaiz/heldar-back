@@ -1,0 +1,87 @@
+@use "base";
+@use "variables";
+@use "static_styles";
+
+.container.login {
+	position: relative;
+
+	.outlined-input {
+		direction: ltr;
+	}
+
+	button.back-button {
+		position: absolute;
+		top: 40px;
+		right: 20px;
+		background-color: transparent;
+		border-width: 0;
+		cursor: pointer;
+
+		i {
+			color: #4646b3;
+			font-size: 17px;
+		}
+	}
+
+	.digits-container {
+		@include variables.flex($justify: space-between, $wrap: nowrap);
+		width: 100%;
+		height: auto;
+		direction: ltr;
+
+		input.digit-input {
+			@include variables.font($size: 22px);
+			width: 35px;
+			height: 40px;
+			text-align: center;
+			outline: none !important;
+
+			border: solid 1px #7a7a7a {
+				radius: 5px;
+			}
+
+			&:not(:placeholder-shown),
+			&:focus {
+				border: solid 2px #4646b3;
+			}
+		}
+
+		~ span.error-message {
+			@include variables.flex($justify: flex-start);
+			@include variables.font(shabnam, normal, 13px, #d50d0d);
+			width: 100%;
+			height: auto;
+			margin-bottom: -10px;
+			margin-top: -10px;
+		}
+	}
+
+	span.error-message {
+		@include variables.flex($justify: flex-start);
+		@include variables.font(shabnam, normal, 13px, #d50d0d);
+		width: 100%;
+		height: auto;
+		margin-bottom: -10px;
+		margin-top: 5px;
+	}
+
+	.filled-button {
+		width: 100%;
+		border-radius: 5px;
+	}
+
+	.resend-button {
+		background-color: transparent;
+		border-width: 0;
+		cursor: pointer;
+
+		span {
+			@include variables.font(shabnam, 300, 14px, #092e6c);
+		}
+	}
+
+	.timer {
+		@include variables.font(shabnam, 300, 14px, #092e6c);
+		direction: ltr;
+	}
+}

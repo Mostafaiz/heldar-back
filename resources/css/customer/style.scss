@@ -1,0 +1,427 @@
+@use 'variables';
+@use 'base';
+
+main {
+    @include variables.flex($dir: column);
+    width: calc(100% - 80px);
+    max-width: var(--max-width);
+    height: auto;
+    margin-top: 30px;
+    box-sizing: border-box;
+    width: calc(100% - 80px);
+    padding-bottom: 30px;
+}
+
+.slider-container {
+    width: 100%;
+    height: 300px;
+    border-radius: var(--radius);
+    position: relative;
+
+    &:hover {
+        .slider-buttons-container {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    .inner-slider-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow-x: hidden;
+        border-radius: var(--radius);
+        .scroll-slider-container {
+            @include variables.flex($justify: right);
+            width: auto;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            transition: 0.5s;
+            .slider-image {
+                width: auto;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    .slider-buttons-container {
+        @include variables.flex($gap: 10px);
+        width: auto;
+        height: 40px;
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s;
+
+        .slider-button {
+            @include variables.flex();
+            @include variables.font(shabnam, 700, $color: var(--blue));
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+            background-color: var(--blue);
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+    .slider-status-container {
+        @include variables.flex($gap: 5px);
+        width: 100%;
+        height: auto;
+        bottom: 10px;
+        right: 0;
+        position: absolute;
+        cursor: pointer;
+
+        .slider-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 100px;
+            background-color: rgba(255, 255, 255, 0.726);
+            transition: 0.3s;
+        }
+    }
+}
+
+.products-container {
+    @include variables.flex();
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+    border-radius: var(--radius);
+
+    .inner-products-container {
+        @include variables.flex($justify: bottom, $align: flex-start, $gap: 20px, $dir: column);
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+
+        border: solid 1px var(--lightgray) {
+            radius: var(--radius);
+        }
+
+        ;
+        background-color: var(--white);
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: hidden;
+
+        .products-container-title {
+            @include variables.flex();
+            @include variables.font(shabnam, normal, var(--black));
+            width: auto;
+            height: 30px;
+            box-sizing: border-box;
+            padding-right: 20px;
+        }
+
+        .scroll-products-container {
+            @include variables.flex($justify: flex-start, $gap: 10px, $wrap: nowrap);
+            right: 0;
+            left: unset;
+            width: auto;
+            height: 100%;
+            position: absolute;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: 0.3s;
+            .product-div {
+                @include variables.flex($dir: column, $justify: flex-start);
+                width: 230px;
+                flex-shrink: 0;
+                height: 300px;
+                border-radius: 20px;
+                background-color: var(--white);
+                transition: 0.2s;
+                cursor: pointer;
+                box-sizing: border-box;
+
+                padding: {
+                    bottom: 20px;
+                }
+
+                ;
+
+                &:hover {
+                    scale: 1.05;
+                }
+
+                .product-image {
+                    width: 100%;
+                    height: 200px;
+                    border-radius: 15px;
+                    object-fit: contain;
+                    object-position: center;
+                    box-sizing: border-box;
+                    padding: 10px;
+                }
+
+                .product-title {
+                    @include variables.flex($wrap: wrap, $align: flex-start);
+                    @include variables.font(shabnam, 300, var(--black), 15px);
+                    box-sizing: border-box;
+                    padding: 10px;
+                    text-align: center;
+                    width: 100%;
+                    height: 50px;
+                    margin-top: 10px;
+                    text-decoration: none !important;
+                }
+
+                .product-price-container {
+                    @include variables.flex($justify: flex-end, $gap: 5px);
+                    width: 100%;
+                    height: 50px;
+                    box-sizing: border-box;
+                    padding: 0px 20px;
+                    margin-top: 15px;
+
+                    .product-price-number {
+                        @include variables.font(shabnam, 700, var(--black), 20px);
+                        @include variables.flex();
+                        width: auto;
+                        height: 100%;
+                        text-align: left;
+                    }
+
+                    .product-price-tooman {
+                        @include variables.font(shabnam, normal, var(--black), 14px);
+                        @include variables.flex();
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .products-slider-button {
+        position: absolute;
+        display: flex;
+        width: 40px;
+        height: 40px;
+        top: calc(50% - 20px);
+        background-color: var(--white);
+        cursor: pointer;
+
+        border: solid 1px var(--lightgray) {
+            radius: var(--radius);
+        }
+
+        ;
+    }
+
+    .right {
+        @include variables.flex();
+        right: -20px;
+    }
+
+    .left {
+        @include variables.flex();
+        left: -20px;
+    }
+}
+
+.productsSliderRightVibrate {
+    animation: {
+        name: productSliderRightVibrate;
+        duration: 0.5s;
+        iteration-count: 1;
+    };
+}
+
+.productsSliderLeftVibrate {
+    animation: {
+        name: productSliderLeftVibrate;
+        duration: 0.5s;
+        iteration-count: 1;
+    };
+}
+
+@keyframes productSliderRightVibrate {
+    0% {transform: translateX(0px)}
+    25% {transform: translateX(10px)}
+    50% {transform: translateX(-10px)}
+    75% {transform: translateX(10px)}
+    100% {transform: translateX(0px)}
+}
+
+@keyframes productSliderLeftVibrate {
+    0% {transform: translateX(0px)}
+    25% {transform: translateX(-10px)}
+    50% {transform: translateX(10px)}
+    75% {transform: translateX(-10px)}
+    100% {transform: translateX(0px)}
+}
+
+.static-banner {
+    @include variables.flex();
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    border: {
+        radius: var(--radius);
+    }
+    margin-top: 30px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.categories-container {
+    @include variables.flex($justify: flex-start, $align: flex-start);
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    border-radius: 15px;
+    position: relative;
+
+    hr {
+        width: 100%;
+        position: absolute;
+        border-top: 0;
+        border-bottom: solid 2px var(--blue);
+        top: 15px;
+    }
+
+    ;
+
+    .categories-container-title {
+        @include variables.font(shabnam, normal, var(--blue), 25px);
+        @include variables.flex($justify: right, $align: center);
+        width: auto;
+        height: 40px;
+        padding-left: 20px;
+        background-color: var(--white);
+        position: absolute;
+        margin: 0;
+    }
+
+    .inner-categories-container {
+        @include variables.flex($wrap: wrap, $justify: center, $align: flex-start, $gap: 50px);
+        width: 100%;
+        height: auto;
+        margin-top: 70px;
+        box-sizing: border-box;
+        .category-div {
+            @include variables.flex($dir: column, $justify: flex-start, $gap: 0px);
+            width: 120px;
+            height: 150px;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: 0.2s;
+            border: {
+                radius: 15px;
+            };
+            &:hover {
+                scale: 1.09;
+            }
+            .category-image {
+                @include variables.flex();
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+            .category-name {
+                @include variables.flex($align:flex-start);
+                @include variables.font(shabnam,normal,var(--black),16px);
+                width: 100%;
+                height: 20%;
+                margin: 0;
+                box-sizing: border-box;
+                padding-top: 5px;
+            }
+        }
+    }
+}
+
+.articles-container {
+    @include variables.flex($justify: flex-start, $align: flex-start);
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    border-radius: 15px;
+    position: relative;
+
+    hr {
+        width: 100%;
+        position: absolute;
+        border-top: 0;
+        border-bottom: solid 2px var(--blue);
+        top: 15px;
+    }
+
+    ;
+
+    .articles-container-title {
+        @include variables.font(shabnam, normal, var(--blue), 25px);
+        @include variables.flex($justify: right, $align: center);
+        width: auto;
+        height: 40px;
+        padding-left: 20px;
+        background-color: var(--white);
+        position: absolute;
+        margin: 0;
+    }
+
+    .inner-articles-container {
+        @include variables.flex($wrap: wrap, $justify: flex-start, $align: flex-start, $gap: 20px);
+        width: 100%;
+        height: auto;
+        margin-top: 70px;
+        box-sizing: border-box;
+
+        .article-div {
+            @include variables.flex($dir: column, $gap: 15px, $justify: flex-start, $align: flex-start);
+            width: calc(100% - 10px);
+            max-width: calc(50% - 10px);
+            height: 400px;
+            box-sizing: border-box;
+            cursor: pointer;
+
+            &:hover {
+                .article-image {
+                    scale: 1.02;
+                }
+
+                .article-title::after {
+                    width: 100%;
+                }
+            }
+
+            .article-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                object-position: left;
+                border-radius: var(--radius);
+                transition: 0.3s;
+                box-sizing: border-box;
+                flex-shrink: 0;
+            }
+
+            .article-title {
+                @include variables.flex($justify: flex-start, $align: flex-start);
+                @include variables.font(shabnam, normal, var(--black), 20px);
+                width: auto;
+                height: auto;
+                position: relative;
+            }
+
+            .article-min-content {
+                @include variables.flex($justify: flex-start, $align: flex-start);
+                @include variables.font(shabnam, 300, gray, 16px);
+                width: 100%;
+                height: auto;
+                box-sizing: border-box;
+                margin: 0;
+                text-align: right;
+            }
+        }
+    }
+}

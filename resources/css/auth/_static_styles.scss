@@ -1,0 +1,84 @@
+@use "variables";
+
+.input-con {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.outlined-input {
+    @include variables.flex(row, center, center, 10px, nowrap);
+    @include variables.font($size: 16px);
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    outline: none !important;
+    background-color: var(--lightblue);
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+    box-sizing: border-box;
+
+    border: solid 1px var(--lightgray) {
+        radius: 5px;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+        border: {
+            color: var(--blue);
+            width: 2px;
+        }
+
+        background-color: var(--white);
+
+        +.input-label {
+            top: -10px;
+            font-size: 15px;
+            color: var(--blue);
+            height: 16px;
+            background-color: var(--white);
+        }
+    }
+
+    +label.input-label {
+        @include variables.flex();
+        @include variables.font(shabnam, 300, 17px, var(--gray2));
+        width: auto;
+        height: 20px;
+        padding: 0 5px;
+        position: absolute;
+        right: 10px;
+        top: 9px;
+        cursor: text;
+        transition: 0.2s;
+        background-color: var(--lightblue);
+    }
+
+    ~span.error-message {
+        @include variables.flex($justify: flex-start);
+        @include variables.font(shabnam, normal, 13px, #d50d0d);
+        width: 100%;
+        height: auto;
+        margin-bottom: -10px;
+        margin-top: 5px;
+    }
+}
+
+.filled-button {
+    @include variables.flex(row, center, center, 10px, nowrap);
+    @include variables.font(shabnam, normal, 15px, var(--white));
+    background-color: var(--blue);
+    width: auto;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 100px;
+    border-width: 0;
+    padding: 0 15px;
+
+    &:hover {
+        background-color: var(--dark-blue);
+    }
+}

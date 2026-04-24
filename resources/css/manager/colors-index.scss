@@ -1,0 +1,164 @@
+@use "variables";
+
+.colors-index-panel {
+    .inner-container {
+        grid-template-areas:
+            "title title"
+            "added add"
+            "added not";
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: 100px auto 1fr;
+
+        .added-colors-con {
+            grid-area: added;
+
+            .list-column {
+                .table-row {
+                    &.opened {
+                        .content {
+                            padding: 20px 20px {
+                                top: 10px;
+                            }
+
+                            ;
+                        }
+                    }
+
+                    .table-cell {
+                        &:has(.color-circle) {
+                            margin-left: 5px;
+                        }
+
+                        .color-circle {
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            border: solid 1px var(--white);
+                            outline: solid 2px gray;
+                            box-sizing: border-box;
+                        }
+
+                        .edit-color,
+                        .check-color,
+                        .cancel-color,
+                        .delete {
+                            &:hover {
+                                >i {
+                                    color: white;
+                                }
+                            }
+                        }
+
+                        .edit-color:hover {
+                            background-color: #5f74dc;
+                        }
+
+                        .check-color:hover {
+                            background-color: #4caf50;
+                        }
+
+                        .cancel-color:hover {
+                            background-color: #d33529;
+                        }
+
+                        .delete:hover {
+                            background-color: #d33529;
+                        }
+                    }
+
+                    .content {
+                        @include variables.flex($align: flex-start, $dir: row, $gap: 10px);
+                        box-sizing: border-box;
+                        padding: 0 20px;
+
+                        input.color-code-input {
+                            display: none;
+                        }
+
+                        label.color-code-label {
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            border: solid 2px white;
+                            outline: solid 2px black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .add-color-con {
+            grid-area: add;
+            position: sticky;
+            top: 20px;
+
+            .add-color-form {
+                @include variables.flex(column, flex-start, flex-start, 20px);
+                width: 100%;
+                height: auto;
+            }
+
+            .color-code-con {
+                @include variables.flex(row, flex-start, center, 10px, nowrap);
+
+                span {
+                    @include variables.font(shabnam, 300, 18px, var(--black));
+
+                    &:last-child {
+                        font-family: "Arial", sans-serif;
+                        font-weight: bold;
+                        font-size: 14px;
+                        color: gray;
+                        direction: ltr;
+                    }
+                }
+
+                .color-code-label {
+                    display: flex;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: gray;
+                    box-sizing: border-box;
+                    border: solid 2px white;
+                    outline: solid 2px black;
+                    cursor: pointer;
+                    position: relative;
+
+                    &::after {
+                        @include variables.flex();
+                        @include variables.font(shabnam, 300, 13px, white);
+                        content: "کلیک کنید";
+                        position: absolute;
+                        width: auto;
+                        padding: 0 6px;
+                        height: 25px;
+                        background-color: #111111b4;
+                        border-radius: 5px;
+                        left: -80px;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: 0.2s;
+                        transition-delay: 1s;
+                    }
+
+                    &:hover {
+                        &::after {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .submit-button-con {
+                display: flex;
+                justify-content: left;
+
+                .submit-button {
+                    background-color: #234fca;
+                }
+            }
+        }
+    }
+}

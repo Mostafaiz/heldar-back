@@ -1,0 +1,585 @@
+@use "variables";
+
+.outlined-input {
+    @include variables.flex(row, center, center, 10px, nowrap);
+    @include variables.font($size: 16px);
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    outline: none !important;
+    background-color: #f4f6f7;
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+    box-sizing: border-box;
+
+    border: solid 1px var(--lightgray) {
+        radius: 5px;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+        border: {
+            color: var(--blue);
+            width: 2px;
+        }
+
+        background-color: var(--white);
+
+        +.input-label {
+            top: -10px;
+            font-size: 15px;
+            color: var(--blue);
+            height: 16px;
+            background-color: var(--white);
+        }
+    }
+}
+
+.input-text {
+    @include variables.font(shabnam, normal, 17px, var(--black));
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    outline: none !important;
+    background-color: var(--lightblue);
+    flex-shrink: 0;
+    transition: 0.2s;
+
+    border: solid 1px var(--lightgray) {
+        radius: 8px;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+        border-color: var(--blue);
+        background-color: var(--white);
+
+        +.input-label {
+            top: -10px;
+            font-size: 15px;
+            color: var(--blue);
+            height: 16px;
+            background-color: var(--white);
+        }
+    }
+}
+
+.textarea {
+    @extend .outlined-input;
+    height: 100%;
+    resize: none;
+    font-weight: 300;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+.input-label {
+    @include variables.flex();
+    @include variables.font(shabnam, 300, 17px, var(--gray2));
+    width: auto;
+    height: 20px;
+    padding: 0 5px;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    cursor: text;
+    transition: 0.2s;
+    background-color: #f4f6f7;
+}
+
+.input-con {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+
+    &.column {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    span.error-message {
+        @include variables.flex($justify: flex-start);
+        @include variables.font(shabnam, normal, 13px, #d50d0d);
+        width: 100%;
+        height: auto;
+        margin-bottom: -10px;
+        margin-top: 5px;
+
+        &.image {
+            margin-top: -15px;
+        }
+    }
+}
+
+.textarea-con {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    flex-grow: 1;
+
+    &.height {
+        height: auto;
+    }
+}
+
+.select-con {
+    @include variables.flex(row, flex-start, center, 10px, wrap);
+    position: absolute;
+    top: 56px;
+    width: auto;
+    max-width: calc(100% - 40px);
+    min-height: 50px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: var(--white);
+    box-shadow: 0px 9px 30px -16px #acacac;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+    z-index: 1 !important;
+
+    border: solid 1px var(--lightgray) {
+        radius: var(--radius);
+    }
+}
+
+.select-button {
+    @include variables.font(shabnam, 300, 17px, var(--gray2));
+    @include variables.flex(row, flex-start, center, 5px, nowrap);
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    outline: none !important;
+    background-color: var(--lightyellow);
+    flex-shrink: 0;
+    transition: 0.2s;
+    text-align: right;
+    cursor: pointer;
+    overflow-x: auto;
+    scrollbar-width: thin;
+
+    border: solid 1px var(--lightgray) {
+        radius: 8px;
+    }
+
+    +label {
+        background-color: var(--lightyellow);
+        cursor: pointer;
+
+        +.select-button-icon {
+            // @include variables.background(
+            // 	"/assets/manager/icons/caretDown.svg"
+            // );
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: calc(50% - 6px);
+            left: 15px;
+            filter: brightness(130%);
+            transition: 0.2s;
+            cursor: pointer;
+
+            &:hover {
+                scale: 1.2;
+            }
+        }
+    }
+}
+
+.button {
+    @include variables.flex(row, center, center, 10px, nowrap);
+    @include variables.font(shabnam, normal, 15px);
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 10px;
+    padding: 0 15px;
+
+    &.filled {
+        background-color: var(--blue);
+        color: var(--white);
+        border-width: 0;
+
+        &:disabled {
+            background-color: #a8b8d6;
+            cursor: default;
+        }
+
+        &:hover:not(:disabled) {
+            background-color: var(--dark-blue);
+
+        }
+    }
+
+    &.outlined {
+        background-color: var(--white);
+        border: solid 1px var(--blue);
+        color: var(--blue);
+
+        &:disabled {
+            border-color: #d8d8d8;
+            color: #a3a3a3;
+            cursor: default;
+        }
+
+        &:hover:not(:disabled) {
+            background-color: var(--lightblue);
+        }
+
+    }
+
+    &.tonal {
+        background-color: #b4c4e2;
+        color: #232323;
+        border-width: 0;
+
+        &:hover {
+            background-color: #a8b8d6;
+        }
+    }
+
+    &.text {
+        background-color: transparent;
+        border-width: 0;
+        color: var(--blue);
+
+        &:hover {
+            background-color: #fdf4f6;
+        }
+    }
+
+    .icon {
+        width: 15px;
+        height: 15px;
+        transform-origin: 50% 50%;
+        animation: spin 1s linear infinite;
+
+        i {
+            @include variables.flex();
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.icon-button {
+    @include variables.flex();
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #e4e4e4;
+    border-width: 0;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: #555555;
+
+        i {
+            color: white;
+        }
+    }
+
+    i {
+        transition: 0.2s;
+        color: #555555;
+    }
+
+    &.delete:hover {
+        background-color: #d13c3c;
+    }
+
+    &.edit:hover {
+        background-color: var(--blue);
+    }
+}
+
+.submit-button {
+    @include variables.font(shabnam, 300, 17px, var(--white));
+    @include variables.flex(row, center, center, 10px, nowrap);
+    --button-color: #fff;
+    --button-background: #47b18d;
+    width: auto;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    outline: none !important;
+    flex-shrink: 0;
+    transition: 0.2s;
+    cursor: pointer;
+    justify-content: center;
+    background-color: var(--button-background);
+    color: var(--button-color);
+
+    border: {
+        radius: 10px;
+        width: 0;
+    }
+}
+
+.submit-button--outline {
+    @extend .submit-button;
+    background-color: transparent;
+    border: 2px solid var(--button-background);
+    color: var(--button-background);
+
+    &:hover {
+        background-color: var(--button-background);
+        color: var(--button-color);
+    }
+}
+
+.discard-button {
+    @include variables.font(shabnam, 300, 17px, #bd1e1e);
+    @include variables.flex(row, center, center, 5px, nowrap);
+    width: auto;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    outline: none !important;
+    flex-shrink: 0;
+    transition: 0.2s;
+    cursor: pointer;
+    justify-content: center;
+    background-color: var(--white);
+    transition: 0.2s;
+
+    border: solid 1px #bd1e1e {
+        radius: 10px;
+    }
+
+    &:hover {
+        background-color: #bd1e1e;
+        color: var(--white);
+    }
+}
+
+.inserted-item {
+    @include variables.flex($gap: 5px);
+    @include variables.font(shabnam, 300, 15px, var(--black));
+    width: auto;
+    height: 23px;
+    background-color: lightgray;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 15px 8px;
+
+    i {
+        // @include variables.background(
+        // 	"/assets/manager/icons/close.svg",
+        // 	$size: 70%,
+        // 	$pos: 40% 60%
+        // );
+        width: 15px;
+        height: 15px;
+        background-color: #b3b3b3;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+}
+
+.focused-button {
+    border-color: var(--blue);
+    background-color: var(--white);
+}
+
+.focused-label {
+    top: -10px;
+    font-size: 15px;
+    color: var(--blue);
+    height: 16px;
+    background-color: var(--white) !important;
+}
+
+.focused-section {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(-10px);
+}
+
+.list-column {
+    @include variables.flex(column, flex-start, flex-start, 10px, nowrap);
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+
+.back-cover {
+    @include variables.flex();
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #91919165;
+    backdrop-filter: blur(1px);
+    z-index: 10;
+}
+
+.loading-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+
+    .loading-ball {
+        width: 20px;
+        height: 20px;
+        background-color: #38a9f0;
+        border-radius: 50%;
+        animation-name: loading;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        animation-iteration-count: infinite;
+
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.icon-btn {
+    @include variables.flex($justify: center, $align: center);
+    --icon-btn-hover-background: var(--blue);
+    width: 25px;
+    height: 25px;
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: gray;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: var(--icon-btn-hover-background);
+        color: #fff;
+    }
+}
+
+.table-row {
+    width: 100%;
+    height: auto;
+    border: solid 1px #b4b4b4;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 0fr;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: 0.2s;
+
+    &.opened {
+        grid-template-rows: 50px 1fr;
+    }
+
+    .details {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        box-sizing: border-box;
+        padding: 0 10px;
+
+        .table-cell {
+            min-width: 40px;
+            width: auto;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+
+            &.name {
+                @include variables.font(shabnam, normal, 17px, var(--black));
+                width: auto;
+                height: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-direction: row;
+                flex-grow: 1;
+            }
+
+            button {
+                @include variables.flex();
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                background-color: #e4e4e4;
+                border-width: 0;
+                cursor: pointer;
+                transition: 0.2s;
+
+                &:hover {
+                    background-color: #a3a3a3;
+                }
+
+                i {
+                    transition: 0.2s;
+                    color: #555555;
+                }
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+}
+
+span.error-message {
+    @include variables.flex($justify: flex-start);
+    @include variables.font(shabnam, normal, 13px, #d50d0d);
+    width: 100%;
+    height: auto;
+    margin-bottom: -10px;
+    margin-top: 5px;
+
+    &.image,
+    &.color {
+        margin-top: -15px;
+    }
+}
